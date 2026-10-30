@@ -1,10 +1,10 @@
-
 from document_text import get_document_text
 
 test_files = [
-    "docs/sample_invoice_02.txt",
-    "docs/sample_invoice_02.pdf",
     "docs/sample_invoice_02_ocr_test.png",
+    "docs/sample_invoice_blurry.jpg",
+    "docs/sample_invoice_photo.png",
+    "docs/sample_scanned_invoice.pdf",
 ]
 
 for file_path in test_files:
@@ -14,11 +14,11 @@ for file_path in test_files:
     try:
         text = get_document_text(file_path)
 
-        print("Text extraction successful.")
-        print("First 500 characters:")
-        print(text[:500])
-
-        if not text.strip():
+        if text.strip():
+            print("Text extraction successful.")
+            print("First 500 characters:")
+            print(text[:500])
+        else:
             print("WARNING: No text was extracted.")
 
     except Exception as error:

@@ -1,4 +1,3 @@
-
 from pathlib import Path
 import os
 import tempfile
@@ -23,9 +22,26 @@ app = FastAPI(
     version="1.0.0",
 )
 
+
+# Allow local frontend and deployed Vercel frontend.
+allowed_origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
+frontend_origin = os.getenv("FRONTEND_ORIGIN", "")
+
+if frontend_origin:
+    allowed_origins.extend(
+        origin.strip()
+        for origin in frontend_origin.split(",")
+        if origin.strip()
+    )
+
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -83,8 +99,7 @@ async def upload_invoice(file: UploadFile = File(...)):
         # Extract invoice fields from the uploaded document.
         invoice_data = extract_invoice(temporary_path)
 
-        # Reject documents where none of the important fields
-        # could be extracted.
+        # Reject documents where no important fields were extracted.
         important_fields = (
             "vendor_name",
             "invoice_number",
@@ -109,7 +124,6 @@ async def upload_invoice(file: UploadFile = File(...)):
         return invoice_data
 
     except HTTPException:
-        # Preserve the intended HTTP status and error message.
         raise
 
     except (ValueError, UnicodeDecodeError) as error:
