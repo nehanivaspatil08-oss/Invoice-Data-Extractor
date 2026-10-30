@@ -1,0 +1,27 @@
+
+                  BLUEPEAK DIGITAL SUPPLIES
+                 Office Technology Solutions
+                 Bengaluru, Karnataka, India
+
+                       TAX INVOICE
+
+Seller Name              : BluePeak Digital Supplies
+Invoice Ref              : BDS-208
+Invoice Date             : 30/10/2026
+GST Registration Number  : 29QWERT1234K1Z6
+
+--------------------------------------------------
+Description                       Amount (INR)
+--------------------------------------------------
+Computer equipment                 52,000.00
+Less: Trade discount                2,000.00
+--------------------------------------------------
+Net taxable value                  50,000.00
+
+Integrated GST @ 18%                9,000.00
+Rounding adjustment                     0.00
+--------------------------------------------------
+Total payable                      59,000.00
+--------------------------------------------------
+
+Fictional invoice created for software testing.

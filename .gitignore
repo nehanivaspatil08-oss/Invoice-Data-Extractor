@@ -1,0 +1,42 @@
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Node.js dependencies
+node_modules/
+**/node_modules/
+
+# Frontend build files
+frontend/dist/
+dist/
+
+# Generated files and logs
+*.log
+invoice_output*.json
+
+# Temporary working files
+scratch/
+
+# Editor and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Development and backup files
+debug_invoice_fields.py
+read_invoice_backup.py
+scratch/

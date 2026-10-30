@@ -1,0 +1,29 @@
+
+                    NIRMAL OFFICE MART
+                 Office Supplies & Equipment
+              42 Market Road, Pune, Maharashtra
+
+                    TAX INVOICE
+
+Supplier          : Nirmal Office Mart
+Reference Number  : NOM-6107
+Bill Date          : 29-Oct-2026
+GST Registration  : 27LMNOP5678Q1Z4
+
+--------------------------------------------------
+Description                 Amount (INR)
+--------------------------------------------------
+Office equipment             20,000.00
+Trade discount                2,000.00
+--------------------------------------------------
+Taxable value after discount 18,000.00
+
+CGST @ 9%                     1,620.00
+SGST @ 9%                     1,620.00
+IGST                          Not applicable
+Round off                         0.00
+--------------------------------------------------
+Net payable                  21,240.00
+--------------------------------------------------
+
+This is a fictional invoice created for software testing.
