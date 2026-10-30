@@ -40,3 +40,5 @@ Thumbs.db
 debug_invoice_fields.py
 read_invoice_backup.py
 scratch/
+# TiDB Cloud public CA certificate
+!isrgrootx1.pem

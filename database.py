@@ -5,14 +5,29 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-
 def get_connection():
-    return mysql.connector.connect(
-        host=os.getenv("MYSQL_HOST", "localhost"),
-        user=os.getenv("MYSQL_USER", "root"),
-        password=os.getenv("MYSQL_PASSWORD", ""),
-        database=os.getenv("MYSQL_DATABASE", "invoice_db")
-    )
+    ssl_ca = os.getenv("MYSQL_SSL_CA")
+
+    connection_config = {
+        "host": os.getenv("MYSQL_HOST", "localhost"),
+        "port": int(os.getenv("MYSQL_PORT", "3306")),
+        "user": os.getenv("MYSQL_USER", "root"),
+        "password": os.getenv("MYSQL_PASSWORD", ""),
+        "database": os.getenv("MYSQL_DATABASE", "invoice_db"),
+    }
+
+    if ssl_ca:
+        from pathlib import Path
+
+        certificate_path = Path(__file__).parent / ssl_ca
+
+        connection_config.update({
+            "ssl_ca": str(certificate_path),
+            "ssl_verify_cert": True,
+            "ssl_verify_identity": True,
+        })
+
+    return mysql.connector.connect(**connection_config)
 
 
 
